@@ -1,0 +1,43 @@
+系统要求：CentOS 7.6（7.6系统以上也可以）
+
+系统环境：PHP 7.4
+PHP需要安装扩展：redis、sg11、sg14
+
+
+PHP配置修改：
+最大脚本运行时间：86400
+最大输入时间：86400
+脚本内存限制：1000M（越大越好具体看自身机子内存）
+允许上传文件的最大尺寸：1000M（具体看你自己需求）
+
+
+PHP禁用函数删除:   (温馨提示：ctrl+F 打开浏览器查询功能，防止删错）
+shell_exec
+exec
+popen
+proc_open
+putenv
+（记得重启PHP）
+
+
+后台地址：https://你的域名/zxqm.php
+后台账号：admin  
+后台密码：123456
+
+
+数据库对接修改文件目录：/www/wwwroot/域名/application/database.php
+UDID 获取文件修改目录：/www/wwwroot/域名/public/udid.mobileconfig
+
+网站目录设置：/www/wwwroot/你的域名
+（注：运行目录设置为：public）
+
+
+网站伪静态设置：选thinkphp，然后复制下段代码：
+location / {
+        if (!-e $request_filename){
+                rewrite  ^(.*)$  /index.php?s=$1  last;   break;
+        }
+}
+
+
+
